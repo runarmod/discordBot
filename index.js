@@ -2,7 +2,7 @@ const Commando = require('discord.js-commando');
 const bot = new Commando.Client({
     commandPrefix: "'"
     });
-const TOKEN = 'NDk4OTQ0NzI2MjA1MDcxMzcw.DvAZjg.DN6NzTbsXRPlMVphQjTjfRwRwEM'
+const TOKEN = process.env.token;
 var forbidden = ["yeet"];
 
 bot.registry.registerGroup('simple', 'Simple');
