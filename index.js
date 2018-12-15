@@ -3,7 +3,7 @@ const bot = new Commando.Client({
     commandPrefix: "'"
     });
 const TOKEN = process.env.token;
-var forbidden = ["yeet"];
+let forbidden = ["yeet", "yee t", "ye et", "y eet", "y e e t", "y ee t", "y  e  e  t"];
 
 bot.registry.registerGroup('simple', 'Simple');
 bot.registry.registerGroup('music', 'Music');
@@ -32,13 +32,16 @@ bot.on('message', message => {
     {
         message.channel.send({files: ["./images/spriteCranberry.jpg"]});
     } 
-    else if(message.content.toLowerCase().includes(forbidden))
+    for (var i in forbidden)
     {
-        if(message.author.id !== '498944726205071370')
+        if (message.content.toLowerCase().includes(forbidden[i].toLowerCase()))
         {
-            var newSentence = message.content.toLowerCase().replace(forbidden, "\*\*\*");
-            message.delete(5000);
-            message.channel.send(':open_mouth:, ' + message.author + ' tried to say the forbidden word... I will delete his message in 5 seconds! Here is what he was trying to say: "' + newSentence + '"');
+            if(message.author.id !== '498944726205071370' || message.author.id !== '514791363032776704')
+            {
+                var newSentence = message.content.toLowerCase().replace(forbidden[i], "\*\*\*");
+                message.delete(5000);
+                message.channel.send(':0, ' + message.author + ' tried to say "' + newSentence + '." I will delete his message in 5 seconds!');
+            }
         }
     }
 });
