@@ -36,7 +36,7 @@ bot.on('message', message => {
     {
         if(message.author.id !== '498944726205071370')
         {
-            var newSentence = message.content.replace(forbidden, "\*\*\*");
+            var newSentence = message.content.toLowerCase().replace(forbidden, "\*\*\*");
             message.delete(5000);
             message.channel.send(':open_mouth:, ' + message.author + ' tried to say the forbidden word... I will delete his message in 5 seconds! Here is what he was trying to say: "' + newSentence + '"');
         }
