@@ -19,7 +19,7 @@ class DonateWikipediaCommand extends Commando.Command
         {
             message.channel.send({files: ["./images/donate.jpg"]});
         }
-        if else(chance == 1)
+        else if(chance == 1)
         {
             message.channel.send("Come on man. Wikipedia really needs your money. Be honest, you use it basically every day, but they can't sustain themselves without some money... Come on " + message.author + " I know you want to give some... 3$ is enough, so please just do it.");
         }
