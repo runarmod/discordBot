@@ -3,7 +3,7 @@ const bot = new Commando.Client({
     commandPrefix: "'"
     });
 const TOKEN = process.env.token;
-let forbidden = ["yeet", "yee t", "ye et", "y eet", "y e e t", "y ee t", "y  e  e  t"];
+let forbidden = ["yeet", "yee t", "ye et", "y eet", "y e e t", "y ee t", "y  e  e  t", "y.e.e.t", "y. e. e. t"];
 
 bot.registry.registerGroup('simple', 'Simple');
 bot.registry.registerGroup('music', 'Music');
