@@ -40,7 +40,7 @@ bot.on('message', message => {
             {
                 var newSentence = message.content.toLowerCase().replace(forbidden[i], "[forbidden word]");
                 message.delete(5000);
-                message.channel.send(':0, ' + message.author + ' tried to say "' + newSentence + '." I will delete his message in 5 seconds!');
+                message.channel.send(':open_mouth:, ' + message.author + ' tried to say "' + newSentence + '." I will delete his message in 5 seconds!');
             }
         }
     }
