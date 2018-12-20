@@ -3,7 +3,7 @@ const bot = new Commando.Client({
     commandPrefix: "'"
     });
 const TOKEN = process.env.token;
-let forbidden = ["yeet", "yee t", "ye et", "y eet", "y e e t", "y ee t", "y  e  e  t", "y.e.e.t", "y. e. e. t"];
+let forbidden = ["yeet", "y.e.e.t", "y. e. e. t"];
 
 
 bot.registry.registerGroup('simple', 'Simple');
@@ -56,11 +56,11 @@ bot.on('message', message => {
     
     for (var i in forbidden)
     {
-        if (message.content.toLowerCase().includes(forbidden[i].toLowerCase()))
+        if (message.content.replace(/\s/g, "").toLowerCase().includes(forbidden[i].toLowerCase()))
         {
             if(message.author.id !== '498944726205071370' || message.author.id !== '514791363032776704')
             {
-                var newSentenceForbidden = message.content.toLowerCase().replace(forbidden[i], "[forbidden word]");
+                var newSentenceForbidden = message.content.replace(/\s/g, "").toLowerCase().replace(forbidden[i], "[forbidden word]");
                 message.channel.send(':open_mouth:, ' + message.author + ' tried to say "' + newSentenceForbidden + '." I will delete his message in 5 seconds!').then(msg => {
                     let counter = 5;
                     var editeMelding = setInterval(() =>{
