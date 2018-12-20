@@ -61,8 +61,23 @@ bot.on('message', message => {
             if(message.author.id !== '498944726205071370' || message.author.id !== '514791363032776704')
             {
                 var newSentenceForbidden = message.content.toLowerCase().replace(forbidden[i], "[forbidden word]");
-                message.delete(5000);
-                message.channel.send(':open_mouth:, ' + message.author + ' tried to say "' + newSentenceForbidden + '." I will delete his message in 5 seconds!');
+                message.channel.send(':open_mouth:, ' + message.author + ' tried to say "' + newSentenceForbidden + '." I will delete his message in 5 seconds!').then(msg => {
+                    let counter = 5;
+                    var editeMelding = setInterval(() =>{
+                        if(counter == 0)
+                        {
+                            message.delete();
+                            clearInterval(editeMelding);
+                            msg.edit(':open_mouth:, ' + message.author + ' tried to say "' + newSentenceForbidden + '." I have now deleted the message!');
+                        }
+                        if(counter > 0.1)
+                        {
+                            counter--;
+                            msg.edit(':open_mouth:, ' + message.author + ' tried to say "' + newSentenceForbidden + '." I will delete his message in ' + counter + ' seconds!');
+                        }
+                    }, 1000);
+                    
+                });
             }
         }
     }
