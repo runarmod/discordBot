@@ -36,22 +36,22 @@ bot.on('message', message => {
     else if(message.content.toLowerCase().startsWith("i'm"))
     {
         var newMessageDadJokeEnglish = message.content.toLowerCase().replace("i'm ", "");
-        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", i am a bot. Greetings Dad.')
+        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", I am a bot.')
     }
     else if(message.content.toLowerCase().startsWith("im"))
     {
         var newMessageDadJokeEnglish = message.content.toLowerCase().replace("im ", "");
-        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", i am a bot. Greetings Dad.')
+        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", I am a bot.')
     }
     else if(message.content.toLowerCase().startsWith("i am"))
     {
         var newMessageDadJokeEnglish = message.content.toLowerCase().replace("i am ", "");
-        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", i am a bot. Greetings Dad.')
+        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", I am a bot.')
     }
     else if(message.content.toLowerCase().startsWith("jeg er ", ""))
     {
         var newMessageDadJokeNorwegian = message.content.toLowerCase().replace("jeg er ", "");
-        message.channel.send('Hei "' + newMessageDadJokeNorwegian + '", jeg er en robot. Hilsner Pappa.')
+        message.channel.send('Hei "' + newMessageDadJokeNorwegian + '", jeg er en robot.')
     }
     
     for (var i in forbidden)
