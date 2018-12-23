@@ -87,7 +87,6 @@ bot.on('ready', function(){
     console.log('ready');
     bot.user.setActivity("'help")
     bot.channels.get("523176389591957524").send("My code just got updated!")
-    bot.channels.get("340849877254799361").send("D")
 });
 
 bot.login(TOKEN);
