@@ -31,7 +31,7 @@ bot.on('message', message => {
     }
     else if(message.content.toLowerCase().includes('sprite cranberry'))
     {
-        message.channel.send({files: ["./images/spriteCranberry.jpg"]});
+        message.channel.send({files: ["./images/sprite.gif"]});
     }
     else if(message.content.toLowerCase().startsWith("i'm"))
     {
