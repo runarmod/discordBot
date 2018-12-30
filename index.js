@@ -1,4 +1,5 @@
 const Commando = require('discord.js-commando');
+var cron = require('node-cron');
 const bot = new Commando.Client({
     commandPrefix: "'"
     });
@@ -17,16 +18,19 @@ bot.on('message', message => {
     {
         message.channel.sendMessage('Hi ' + message.author + ', how are you?');
     }
-    else if(message.content.toLowerCase().includes('burn'))
+    else if(message.content.toLowerCase() == 'burn')
     {
+        message.delete();
         message.channel.send({files: ["./images/burn.gif"]});
     }
-    else if(message.content.toLowerCase().includes(': o') || message.content.includes(':0') || message.content.includes(': 0'))
+    else if(message.content.toLowerCase() == ': o' || message.content.replace(" ", "") == ':0')
     {
+        message.delete();
         message.channel.send({files: ["./images/oh.png"]});
     }
-    else if(message.content.toLowerCase().includes('wut'))
+    else if(message.content.toLowerCase() == 'wut')
     {
+        message.delete();
         message.channel.send({files: ["./images/oh.jpg"]});
     }
     else if(message.content.toLowerCase().includes('sprite cranberry'))
@@ -36,30 +40,32 @@ bot.on('message', message => {
     else if(message.content.toLowerCase().startsWith("i'm"))
     {
         var newMessageDadJokeEnglish = message.content.toLowerCase().replace("i'm ", "");
-        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", I am a bot.')
+        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", I am a bot. Greetings Dad.')
     }
     else if(message.content.toLowerCase().startsWith("im"))
     {
         var newMessageDadJokeEnglish = message.content.toLowerCase().replace("im ", "");
-        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", I am a bot.')
+        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", I am a bot. Greetings Dad.')
     }
     else if(message.content.toLowerCase().startsWith("i am"))
     {
         var newMessageDadJokeEnglish = message.content.toLowerCase().replace("i am ", "");
-        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", I am a bot.')
+        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", I am a bot. Greetings Dad.')
     }
     else if(message.content.toLowerCase().startsWith("jeg er ", ""))
     {
         var newMessageDadJokeNorwegian = message.content.toLowerCase().replace("jeg er ", "");
-        message.channel.send('Hei "' + newMessageDadJokeNorwegian + '", jeg er en robot.')
+        message.channel.send('Hei "' + newMessageDadJokeNorwegian + '", jeg er en robot. Hilsner Pappa.')
     }
-    
+    //Dette er en test og jeg vet ikke om det fungerer!
     for (var i in forbidden)
     {
-        if (message.content.replace(/\s/g, "").replace(/\W/g, "").toLowerCase().includes(forbidden[i].toLowerCase()))
+        if (message.content.replace(/\s/g, "").replace(/\W/g, "").toLowerCase().includes(forbidden[i]))
         {
+            var nySetning = message.content.replace(message.content.replace(/\s/g, "").replace(/\W/g, "").toLowerCase())
             if(message.author.id !== '498944726205071370' || message.author.id !== '514791363032776704')
             {
+                var forbiddenBeingSaid = forbidden[i];
                 var newSentenceForbidden = message.content.replace(/\s/g, "").replace(/\W/g, "").toLowerCase().replace(forbidden[i], "[forbidden word]");
                 message.channel.send(':open_mouth:, ' + message.author + ' tried to say "' + newSentenceForbidden + '." I will delete his message in 5 seconds!').then(msg => {
                     let counter = 5;
@@ -76,11 +82,18 @@ bot.on('message', message => {
                             msg.edit(':open_mouth:, ' + message.author + ' tried to say "' + newSentenceForbidden + '." I will delete his message in ' + counter + ' seconds!');
                         }
                     }, 1000);
-                    
                 });
             }
         }
     }
+});
+
+//Godt nytt aar
+cron.schedule('0 0 1 1 *', () => {
+    //Epic
+    bot.channels.get("520254027808768015").send('@everyone, HAPPY NEW YEAR!!!');
+    //Crewman
+    bot.channels.get("340849877254799361").send('@everyone, HAPPY NEW YEAR!!!');
 });
 
 bot.on('ready', function(){
