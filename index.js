@@ -1,5 +1,5 @@
 const Commando = require('discord.js-commando');
-var cron = require('node-cron');
+const cron = require('node-cron');
 const bot = new Commando.Client({
     commandPrefix: "'"
     });
