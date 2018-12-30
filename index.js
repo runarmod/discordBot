@@ -37,26 +37,6 @@ bot.on('message', message => {
     {
         message.channel.send({files: ["./images/sprite.gif"]});
     }
-    else if(message.content.toLowerCase().startsWith("i'm"))
-    {
-        var newMessageDadJokeEnglish = message.content.toLowerCase().replace("i'm ", "");
-        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", I am a bot. Greetings Dad.')
-    }
-    else if(message.content.toLowerCase().startsWith("im"))
-    {
-        var newMessageDadJokeEnglish = message.content.toLowerCase().replace("im ", "");
-        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", I am a bot. Greetings Dad.')
-    }
-    else if(message.content.toLowerCase().startsWith("i am"))
-    {
-        var newMessageDadJokeEnglish = message.content.toLowerCase().replace("i am ", "");
-        message.channel.send('Hi "' + newMessageDadJokeEnglish + '", I am a bot. Greetings Dad.')
-    }
-    else if(message.content.toLowerCase().startsWith("jeg er ", ""))
-    {
-        var newMessageDadJokeNorwegian = message.content.toLowerCase().replace("jeg er ", "");
-        message.channel.send('Hei "' + newMessageDadJokeNorwegian + '", jeg er en robot. Hilsner Pappa.')
-    }
     //Dette er en test og jeg vet ikke om det fungerer!
     for (var i in forbidden)
     {
