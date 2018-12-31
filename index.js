@@ -1,5 +1,5 @@
 const Commando = require('discord.js-commando');
-const cron = require('node-cron');
+//const cron = require('node-cron');
 const bot = new Commando.Client({
     commandPrefix: "'"
     });
@@ -67,7 +67,7 @@ bot.on('message', message => {
         }
     }
 });
-
+/*
 //Godt nytt aar
 cron.schedule('42 15 31 12 *', () => {
     //Epic
@@ -75,7 +75,7 @@ cron.schedule('42 15 31 12 *', () => {
     //Crewman
     bot.channels.get("340849877254799361").send('@everyone, HAPPY NEW YEAR!!!');
 });
-
+*/
 
 bot.on('ready', function(){
     console.log('ready');
