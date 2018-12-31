@@ -81,6 +81,8 @@ bot.on('ready', function(){
     console.log('ready');
     bot.user.setActivity("'help")
     bot.channels.get("523176389591957524").send("My code just got updated!")
+    var millisTillNewYear = new Date(2018, 11, 31, 16, 34, 0, 0).getTime() - Date.now();
+    setTimeout(function(){bot.channels.get("521718679532994562").send('@everyone, HAPPY NEW YEAR!!!')}, millisTillNewYear);
 });
 
 bot.login(TOKEN);
