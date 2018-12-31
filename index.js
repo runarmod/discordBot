@@ -1,5 +1,4 @@
 const Commando = require('discord.js-commando');
-//const cron = require('node-cron');
 const bot = new Commando.Client({
     commandPrefix: "'"
     });
@@ -67,22 +66,17 @@ bot.on('message', message => {
         }
     }
 });
-/*
-//Godt nytt aar
-cron.schedule('42 15 31 12 *', () => {
-    //Epic
-    bot.channels.get("520254027808768015").send('@everyone, HAPPY NEW YEAR!!!');
-    //Crewman
-    bot.channels.get("340849877254799361").send('@everyone, HAPPY NEW YEAR!!!');
-});
-*/
 
 bot.on('ready', function(){
     console.log('ready');
     bot.user.setActivity("'help")
-    bot.channels.get("523176389591957524").send("My code just got updated!")
-    var millisTillNewYear = new Date(2018, 11, 31, 16, 34, 0, 0).getTime() - Date.now();
-    setTimeout(function(){bot.channels.get("521718679532994562").send('@everyone, HAPPY NEW YEAR!!!')}, millisTillNewYear);
+    bot.channels.get("523176389591957524").send("My code just got updated!");
+    
+    var millisTillNewYear = new Date(2019, 0, 1, 0, 0).getTime() - Date.now();
+    setTimeout(function(){
+        bot.channels.get("340849877254799361").send('@everyone, HAPPY NEW YEAR!!!');
+        bot.channels.get("520254027808768015").send('@everyone, HAPPY NEW YEAR!!!');
+    }, millisTillNewYear);
 });
 
 bot.login(TOKEN);
