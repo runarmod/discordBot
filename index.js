@@ -46,6 +46,11 @@ bot.on('message', message => {
         message.delete();
         message.channel.send({files: ["./images/ree.gif"]});
     }
+    else if(message.content.toLowerCase() == 'whatshappening')
+    {
+        message.delete();
+        message.channel.send({files: ["./images/whatshappening.gif"]});
+    }
     //Dette er en test og jeg vet ikke om det fungerer!
     for (var i in forbidden)
     {
