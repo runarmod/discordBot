@@ -78,7 +78,7 @@ bot.on('ready', function(){
         bot.channels.get("340849877254799361").send('@everyone, HAPPY NEW YEAR!!!');
         bot.channels.get("520254027808768015").send('@everyone, HAPPY NEW YEAR!!!');
     }, millisTillNewYear);
-    */
+    
     //Crewman
         var agusta = new Date(2019, 0, 3, 0, 0).getTime() - Date.now();
         setTimeout(function(){
@@ -124,12 +124,12 @@ bot.on('ready', function(){
         setTimeout(function(){
             bot.channels.get("520254027808768015").send('<@308665578174939136>, happy birthday!');
         }, jorgen);
-        /*
-        var scott = new Date(2019, 9, 31, 0, 0).getTime() - Date.now();
+        
+        var scott = new Date(2019, vet, ikke, 0, 0).getTime() - Date.now();
         setTimeout(function(){
             bot.channels.get("520254027808768015").send('<@261523858601934850>, happy birthday!');
         }, scott);
-        */
+        
        var hansi = new Date(2019, 8, 11, 0, 0).getTime() - Date.now();
         setTimeout(function(){
             bot.channels.get("520254027808768015").send('<@164350224440098816>, happy birthday!');
@@ -139,6 +139,7 @@ bot.on('ready', function(){
         setTimeout(function(){
             bot.channels.get("520254027808768015").send('<@309311818390568960>, happy birthday!');
         }, stibay);
+    */
 });
 
 bot.login(TOKEN);
