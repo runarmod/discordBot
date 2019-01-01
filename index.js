@@ -51,6 +51,10 @@ bot.on('message', message => {
         message.delete();
         message.channel.send({files: ["./images/whatshappening.gif"]});
     }
+    else if(message.content.toLowerCase().includes('milk'))
+    {
+        message.channel.send({files: ["./images/milk.gif"]});
+    }
     //Dette er en test og jeg vet ikke om det fungerer!
     for (var i in forbidden)
     {
