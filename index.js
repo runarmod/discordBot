@@ -36,6 +36,11 @@ bot.on('message', message => {
     {
         message.channel.send({files: ["./images/sprite.gif"]});
     }
+    else if(message.content.toLowerCase() == 'dafuq')
+    {
+        message.delete();
+        message.channel.send({files: ["./images/dafuq.gif"]});
+    }
     //Dette er en test og jeg vet ikke om det fungerer!
     for (var i in forbidden)
     {
