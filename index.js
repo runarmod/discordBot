@@ -79,6 +79,66 @@ bot.on('ready', function(){
         bot.channels.get("520254027808768015").send('@everyone, HAPPY NEW YEAR!!!');
     }, millisTillNewYear);
     */
+    //Crewman
+        var agusta = new Date(2019, 0, 3, 0, 0).getTime() - Date.now();
+        setTimeout(function(){
+            bot.channels.get("340849877254799361").send('<@278584427674599424>, happy birthday!');
+        }, agusta);
+
+        var joel = new Date(2019, 8, 17, 0, 0).getTime() - Date.now();
+        setTimeout(function(){
+            bot.channels.get("340849877254799361").send('<@253219750455279616>, happy birthday!');
+        }, joel);
+
+        var stian = new Date(2019, 4, 16, 0, 0).getTime() - Date.now();
+        setTimeout(function(){
+            bot.channels.get("340849877254799361").send('<@311548590776516609>, happy birthday!');
+        }, stian);
+
+        var ludvik = new Date(2019, 4, 4, 0, 0).getTime() - Date.now();
+        setTimeout(function(){
+            bot.channels.get("340849877254799361").send('<@173458260798603264>, happy birthday!');
+        }, ludvik);
+
+        var aironas = new Date(2019, 9, 20, 0, 0).getTime() - Date.now();
+        setTimeout(function(){
+            bot.channels.get("340849877254799361").send('<@183587540425506817>, happy birthday!');
+        }, aironas);
+
+        var mir = new Date(2019, 11, 22, 0, 0).getTime() - Date.now();
+        setTimeout(function(){
+            bot.channels.get("340849877254799361").send('<@228919875777593344>, happy birthday!');
+        }, mir);
+
+        var jonas = new Date(2019, 7, 28, 0, 0).getTime() - Date.now();
+        setTimeout(function(){
+            bot.channels.get("340849877254799361").send('<@133564191087919105>, happy birthday!');
+        }, jonas);
+    //Epic
+        var vetle = new Date(2019, 9, 22, 0, 0).getTime() - Date.now();
+        setTimeout(function(){
+            bot.channels.get("520254027808768015").send('<@163667503459991552>, happy birthday!');
+        }, vetle);
+
+        var jorgen = new Date(2019, 9, 31, 0, 0).getTime() - Date.now();
+        setTimeout(function(){
+            bot.channels.get("520254027808768015").send('<@308665578174939136>, happy birthday!');
+        }, jorgen);
+        /*
+        var scott = new Date(2019, 9, 31, 0, 0).getTime() - Date.now();
+        setTimeout(function(){
+            bot.channels.get("520254027808768015").send('<@261523858601934850>, happy birthday!');
+        }, scott);
+        */
+       var hansi = new Date(2019, 8, 11, 0, 0).getTime() - Date.now();
+        setTimeout(function(){
+            bot.channels.get("520254027808768015").send('<@164350224440098816>, happy birthday!');
+        }, hansi);
+
+        var stibay = new Date(2019, 5, 16, 0, 0).getTime() - Date.now();
+        setTimeout(function(){
+            bot.channels.get("520254027808768015").send('<@309311818390568960>, happy birthday!');
+        }, stibay);
 });
 
 bot.login(TOKEN);
