@@ -96,13 +96,13 @@ bot.on('ready', function(){
         bot.channels.get("340849877254799361").send('@everyone, HAPPY NEW YEAR!!!');
         bot.channels.get("520254027808768015").send('@everyone, HAPPY NEW YEAR!!!');
     }, millisTillNewYear);
-    */
+    
     //Crewman
         var agusta = new Date(2019, 0, 3, 0, 0).getTime() - Date.now();
         setTimeout(function(){
             bot.channels.get("340849877254799361").send('<@278584427674599424>, happy birthday!');
         }, agusta);
-/*
+
         var joel = new Date(2019, 8, 17, 0, 0).getTime() - Date.now();
         setTimeout(function(){
             bot.channels.get("340849877254799361").send('<@253219750455279616>, happy birthday!');
