@@ -100,8 +100,7 @@ bot.on('ready', function(){
     //Crewman
         var agusta = new Date(2019, 0, 3, 0, 0).getTime() - Date.now();
         setTimeout(function(){
-            //bot.channels.get("340849877254799361").send('<@278584427674599424>, happy birthday!');
-            bot.channels.get("523176389591957524").send('<@278584427674599424>, happy birthday!');
+            bot.channels.get("340849877254799361").send('<@278584427674599424>, happy birthday!');
         }, agusta);
 /*
         var joel = new Date(2019, 8, 17, 0, 0).getTime() - Date.now();
