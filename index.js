@@ -55,20 +55,20 @@ bot.on('message', message => {
     {
         message.channel.send({files: ["./images/milk.gif"]});
     }
-    //Dette er en test og jeg vet ikke om det fungerer!
-    for (var i in forbidden)
+    
+    if(message.author.id !== '388082091432214538' && message.author.id !== '311548590776516609' && message.author.id !== '253219750455279616' && message.author.id !== '498944726205071370' && message.author.id !== '514791363032776704')
     {
-        if (message.content.replace(/\s/g, "").replace(/\W/g, "").toLowerCase().includes(forbidden[i]))
+        for (var i in forbidden)
         {
-            var nySetning = message.content.replace(message.content.replace(/\s/g, "").replace(/\W/g, "").toLowerCase())
-            if(message.author.id !== '498944726205071370' || message.author.id !== '514791363032776704')
+            if (message.content.replace(/\s/g, "").replace(/\W/g, "").toLowerCase().includes(forbidden[i]))
             {
+                var nySetning = message.content.replace(message.content.replace(/\s/g, "").replace(/\W/g, "").toLowerCase())
                 var forbiddenBeingSaid = forbidden[i];
                 var newSentenceForbidden = message.content.replace(/\s/g, "").replace(/\W/g, "").toLowerCase().replace(forbidden[i], "[forbidden word]");
                 message.channel.send(':open_mouth:, ' + message.author + ' tried to say "' + newSentenceForbidden + '." I will delete his message in 5 seconds!').then(msg => {
                     let counter = 5;
                     var editeMelding = setInterval(() =>{
-                        if(counter == 1)
+                       if(counter == 1)
                         {
                             message.delete();
                             clearInterval(editeMelding);
