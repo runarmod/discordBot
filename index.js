@@ -65,7 +65,7 @@ bot.on('message', message => {
             if (utenSpaceTegnUnder.includes(forbidden[i]))
             {
                 var forbiddenBeingSaid = forbidden[i];
-                var newSentenceForbidden = utenSpaceTegnUnder.replace(forbidden[i], "[forbidden word]");
+                var newSentenceForbidden = utenSpaceTegnUnder.replace(new RegExp(forbidden[i], 'g'), "[forbidden word]");
                 message.channel.send(':open_mouth:, ' + message.author + ' tried to say "' + newSentenceForbidden + '." I will delete his message in 5 seconds!').then(msg => {
                     let counter = 5;
                     var editeMelding = setInterval(() =>{
