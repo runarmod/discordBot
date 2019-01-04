@@ -60,11 +60,11 @@ bot.on('message', message => {
     {
         for (var i in forbidden)
         {
-            if (message.content.replace(/\s/g, "").replace(/\W/g, "").toLowerCase().includes(forbidden[i]))
+            if (message.content.replace(/\s/g, "").replace(/\W/g, "").replace("_", "").toLowerCase().includes(forbidden[i]))
             {
-                var nySetning = message.content.replace(message.content.replace(/\s/g, "").replace(/\W/g, "").toLowerCase())
+                var nySetning = message.content.replace(message.content.replace(/\s/g, "").replace(/\W/g, "").replace("_", "").toLowerCase())
                 var forbiddenBeingSaid = forbidden[i];
-                var newSentenceForbidden = message.content.replace(/\s/g, "").replace(/\W/g, "").toLowerCase().replace(forbidden[i], "[forbidden word]");
+                var newSentenceForbidden = message.content.replace(/\s/g, "").replace(/\W/g, "").replace("_", "").toLowerCase().replace(forbidden[i], "[forbidden word]");
                 message.channel.send(':open_mouth:, ' + message.author + ' tried to say "' + newSentenceForbidden + '." I will delete his message in 5 seconds!').then(msg => {
                     let counter = 5;
                     var editeMelding = setInterval(() =>{
