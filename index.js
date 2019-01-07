@@ -9,6 +9,7 @@ bot.registry.registerGroup('simple', 'Simple');
 bot.registry.registerGroup('music', 'Music');
 bot.registry.registerGroup('memes', 'Memes');
 bot.registry.registerGroup('poll', 'Poll');
+bot.registry.registerGroup('mod', 'Mod');
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + '/commands');
 
