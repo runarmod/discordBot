@@ -1,9 +1,11 @@
 const Commando = require('discord.js-commando');
+var store = require('amplify-store');
 const bot = new Commando.Client({
     commandPrefix: "'"
     });
 const TOKEN = process.env.token;
 let forbidden = ["yeet"];
+store("moderators", ["388082091432214538"]);
 
 
 bot.registry.registerGroup('simple', 'Simple');
