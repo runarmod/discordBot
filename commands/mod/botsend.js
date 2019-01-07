@@ -1,4 +1,3 @@
-var store = require('amplify-store');
 const Commando = require('discord.js-commando');
 
 class BotSendCommand extends Commando.Command
@@ -15,7 +14,7 @@ class BotSendCommand extends Commando.Command
 
     async run(message, args)
     {
-        var mods = store( "moderators" );
+        let mods = ["388082091432214538"];
         if(mods.includes(message.author.id))
         {
             message.channel.send(args);
