@@ -16,15 +16,13 @@ class PollCommand extends Commando.Command
     async run(message, args)
     {
         
-        let question = args;
-
         if (args.length === 0)
-        return message.reply("**Invalid Format:** `'Poll <Question>`")
+        return message.reply("**Invalid Format:** `'yesno <Question>`")
 
-        const poll = new RichEmbed()
+        let poll = new RichEmbed()
         .setTitle("A Poll Has Been Started!")
         .setColor("#5599ff")
-        .setDescription(`${question}`)
+        .setDescription(`${args}`)
         .setFooter(`Poll Started By: ${message.author.username}`, `${message.author.avatarURL}`);
         
         message.guild.channels.find(channel => channel.name === "poll").send({embed: poll})
