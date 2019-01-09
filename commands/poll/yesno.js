@@ -20,7 +20,7 @@ class PollCommand extends Commando.Command
         let question = args;
 
         if (args.length === 0)
-        return message.reply('**Invalid Format:** `!Poll <Question>`')
+        return message.reply("**Invalid Format:** `'Poll <Question>`")
 
         const poll = new RichEmbed()
         .setTitle("A Poll Has Been Started!")
