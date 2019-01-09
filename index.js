@@ -91,7 +91,6 @@ bot.on('message', message => {
 bot.on('ready', function(){
     bot.user.setActivity("'help")
     bot.channels.find(channel => channel.name === "online").send("My code just got updated!");
-    bot.channels.get("340849877254799361").send("^");
     /*
     var millisTillNewYear = new Date(2020, 0, 1, 0, 0).getTime() - Date.now() - 3600000;
     setTimeout(function(){
