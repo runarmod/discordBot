@@ -15,7 +15,7 @@ bot.registry.registerCommandsIn(__dirname + '/commands');
 
 bot.on('message', message => {
     if(message.author.bot) return;
-    if(message.content == "<@498944726205071370>")
+    if(message.content.startsWith("<@498944726205071370>"))
     {
         message.channel.sendMessage(`${message.author}, this is so sad. But at least you are not left on read, so there is that`);
     }
