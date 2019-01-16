@@ -14,6 +14,11 @@ bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + '/commands');
 
 bot.on('message', message => {
+    if(message.author.bot) return;
+    if(message.isMemberMentioned(498944726205071370))
+    {
+        message.channel.sendMessage(`${message.author}, this is so sad. But at least you are not left on read, so there is that`);
+    }
     if(message.content.toLowerCase().includes('hello'))
     {
         message.channel.sendMessage('Hi ' + message.author + ', how are you?');
@@ -94,7 +99,7 @@ bot.on('message', message => {
 });
 
 bot.on('ready', function(){
-    bot.user.setActivity("'help")
+    bot.user.setActivity(`'help | serving ${bot.users.size} users.`);
     bot.channels.find(channel => channel.name === "online").send("My code just got updated!");
     /*
     var millisTillNewYear = new Date(2020, 0, 1, 0, 0).getTime() - Date.now() - 3600000;
