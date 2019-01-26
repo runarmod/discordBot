@@ -23,13 +23,13 @@ bot.registry
 bot.on('message', message => {
     if (message.author.bot) return;
     if (message.content == bot.commandPrefix + "users") {
-        message.reply(`I am currently serving ${bot.users.size} people.`);
+        message.reply(`I am currently serving ${bot.users.size} users.`);
     }
     else if (message.content == bot.commandPrefix + "channels") {
-        message.reply(`I am currently serving ${bot.channels.size} people.`);
+        message.reply(`I am currently serving ${bot.channels.size} channels.`);
     }
     else if (message.content == bot.commandPrefix + "servers") {
-        message.reply(`I am currently serving ${bot.guilds.size} people.`);
+        message.reply(`I am currently serving ${bot.guilds.size} servers.`);
     }
     if (message.content.toLowerCase() == 'hello') {
         message.channel.sendMessage('Hi ' + message.author + ', how are you?');
