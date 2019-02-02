@@ -117,9 +117,11 @@ bot.on('ready', function () {
         var oldDiff = diff;
 
         request(urlPew, { json: true }, (err, res, dataPew) => {
+            if (!Array.isArray(dataPew.items) || !dataPew.items.length) {return}
             fetchDataPew(dataPew);
         });
         request(urlT, { json: true }, (err, res, dataT) => {
+            if (!Array.isArray(dataT.items) || !dataT.items.length) {return}
             fetchDataT(dataT);
         });
 
