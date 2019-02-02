@@ -97,6 +97,7 @@ bot.on('ready', function(){
     bot.channels.find(channel => channel.name === "online").send("My code just got updated!");
 });
 
+var diffGap;
 
 bot.on('ready', function () {
     var totalsubscribersPew;
