@@ -1,11 +1,13 @@
 const Commando = require('discord.js-commando');
 const path = require('path');
+const request = require('request');
 const bot = new Commando.Client({
     commandPrefix: "'",
     owner: '388082091432214538',
     unknownCommandResponse: false
 });
 const TOKEN = process.env.token;
+const apikey = process.env.youtubeapi;
 let forbidden = ["yeet"];
 
 bot.registry
@@ -94,5 +96,64 @@ bot.on('ready', function(){
     bot.user.setActivity(`'help | serving ${bot.users.size} users`);
     bot.channels.find(channel => channel.name === "online").send("My code just got updated!");
 });
+
+
+bot.on('ready', function () {
+    var totalsubscribersPew;
+    var totalsubscribersT;
+    diff = 100000;
+    var urlPew;
+    var urlT;
+    
+
+    urlPew = "https://www.googleapis.com/youtube/v3/channels?key=" + apikey + "&id=UC-lHJZR3Gqxm24_Vd_AJ5Yw&part=snippet,contentDetails,statistics";
+    urlT = "https://www.googleapis.com/youtube/v3/channels?key=" + apikey + "&id=UCq-Fj5jknLsUf-MWSy4_brA&part=snippet,contentDetails,statistics";
+
+
+    setInterval(function () {
+        var oldDiff = diff;
+
+        request(urlPew, { json: true }, (err, res, dataPew) => {
+            fetchDataPew(dataPew);
+        });
+        request(urlT, { json: true }, (err, res, dataT) => {
+            fetchDataT(dataT);
+        });
+
+        function fetchDataPew(dataPew) {
+            totalsubscribersPew = dataPew.items[0].statistics.subscriberCount;
+        }
+        function fetchDataT(dataT) {
+            totalsubscribersT = dataT.items[0].statistics.subscriberCount;
+        }
+        setTimeout(function () { bindData(totalsubscribersPew, totalsubscribersT); }, 500);
+
+        function bindData(totalsubscribersPew, totalsubscribersT) {
+            diff = totalsubscribersPew - totalsubscribersT;
+        }
+        setTimeout(function () {
+            diffGap = oldDiff - diff;
+            
+            if(diffGap <= 0) return;
+            var timeUntilInSeconds = (diff / diffGap) * 10;
+            var timeUntilInMinutes = timeUntilInSeconds / 60;
+            var timeUntilInHours = timeUntilInMinutes / 60;
+            var minutterUtenTimer = timeUntilInMinutes - (Math.floor(timeUntilInHours)) * 60;
+            var sekunderUtenTimer = timeUntilInSeconds - (Math.floor(timeUntilInMinutes)) * 60;
+            timeMinuttSekund = Math.floor(timeUntilInHours) + " hours " + Math.floor(minutterUtenTimer) + " minutes, and " + Math.floor(sekunderUtenTimer) + " seconds"
+        }, 500);
+
+    }, 60000);
+
+
+
+});
+bot.on('message', message => {
+    if (message.content.startsWith(bot.commandPrefix + "time")) {
+        if(diffGap <= 0) return message.reply("wonderful news incomming! PewDiePie is currently getting more subs than T-Series, and the gap is now at " + diff);
+        message.reply("if it keeps going as it has for the last 10 seconds, it will be " + timeMinuttSekund + " until it goes down");
+    }
+});
+
 
 bot.login(TOKEN);
