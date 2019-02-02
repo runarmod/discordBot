@@ -15,8 +15,7 @@ bot.registry
         ['memes', 'Memes'],
         ['poll', 'Poll'],
         ['mod', 'Mod'],
-        ['stats', 'Stats'],
-        ['youtube', 'Youtube']
+        ['stats', 'Stats']
     ])
     .registerDefaults()
     .registerCommandsIn(path.join(__dirname, '/commands'));
