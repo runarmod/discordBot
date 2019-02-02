@@ -98,6 +98,7 @@ bot.on('ready', function(){
 });
 
 var diffGap;
+var timeMinuttSekund;
 
 bot.on('ready', function () {
     var totalsubscribersPew;
