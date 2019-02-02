@@ -99,6 +99,7 @@ bot.on('ready', function(){
 
 var diffGap;
 var timeMinuttSekund;
+var loopTime = 60;
 
 bot.on('ready', function () {
     var totalsubscribersPew;
@@ -137,7 +138,7 @@ bot.on('ready', function () {
             diffGap = oldDiff - diff;
             
             if(diffGap <= 0) return;
-            var timeUntilInSeconds = (diff / diffGap) * 10;
+            var timeUntilInSeconds = (diff / diffGap) * loopTime;
             var timeUntilInMinutes = timeUntilInSeconds / 60;
             var timeUntilInHours = timeUntilInMinutes / 60;
             var minutterUtenTimer = timeUntilInMinutes - (Math.floor(timeUntilInHours)) * 60;
@@ -145,7 +146,7 @@ bot.on('ready', function () {
             timeMinuttSekund = Math.floor(timeUntilInHours) + " hours " + Math.floor(minutterUtenTimer) + " minutes, and " + Math.floor(sekunderUtenTimer) + " seconds"
         }, 500);
 
-    }, 60000);
+    }, loopTime*60);
 
 
 
@@ -153,7 +154,7 @@ bot.on('ready', function () {
 bot.on('message', message => {
     if (message.content.startsWith(bot.commandPrefix + "time")) {
         if(diffGap <= 0) return message.reply("wonderful news incomming! PewDiePie is currently getting more subs than T-Series, and the gap is now at " + diff);
-        message.reply("if it keeps going as it has for the last 10 seconds, it will be " + timeMinuttSekund + " until it goes down");
+        message.reply("if it keeps going as it has for the last " + loopTime + " seconds, it will be " + timeMinuttSekund + " until it goes down");
     }
 });
 
