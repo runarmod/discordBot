@@ -102,6 +102,8 @@ var diffGap;
 var timeMinuttSekund;
 var dateTPew;
 var loopTime = 60;
+var dataPewWorked;
+var dataTWorked;
 var loopTimeMillis = loopTime * 1000;
 
 bot.on('ready', function () {
@@ -119,11 +121,17 @@ bot.on('ready', function () {
         var oldDiff = diff;
 
         request(urlPew, { json: true }, (err, res, dataPew) => {
-            if (!Array.isArray(dataPew.items) || !dataPew.items.length) { return }
+            if (!Array.isArray(dataPew.items) || !dataPew.items.length) { 
+                return message.reply("an error has occured. Try again or contact runarmod#4352")
+            }
+            dataPewWorked = true;
             fetchDataPew(dataPew);
         });
         request(urlT, { json: true }, (err, res, dataT) => {
-            if (!Array.isArray(dataT.items) || !dataT.items.length) { return }
+            if (!Array.isArray(dataT.items) || !dataT.items.length) { 
+                return message.reply("an error has occured. Try again or contact runarmod#4352")
+            }
+            dataTWorked = true;
             fetchDataT(dataT);
         });
 
@@ -162,6 +170,8 @@ bot.on('ready', function () {
 bot.on('message', message => {
     if (message.content.startsWith(bot.commandPrefix + "time")) {
         if (diffGap <= 0) return message.reply("wonderful news incomming! PewDiePie is currently getting more subs than T-Series, and the gap is now at " + diff);
+        if (timeMinuttSekund == (undefined || NaN || null)) return message.reply("I can't get contact with the youtube API. Please contact runarmod#4352");
+        if (dateTPew == (undefined || NaN || null)) return message.reply("I can't get contact with the youtube API. Please contact runarmod#4352");
         message.reply("if it keeps going as it has for the last " + loopTime + " seconds, it will be " + timeMinuttSekund + " until it goes down. This is at " + dateTPew);
     }
 });
