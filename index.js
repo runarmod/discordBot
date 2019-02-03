@@ -99,7 +99,9 @@ bot.on('ready', function(){
 
 var diffGap;
 var timeMinuttSekund;
+var dateTPew;
 var loopTime = 60;
+var loopTimeMillis = loopTime * 1000;
 
 bot.on('ready', function () {
     var totalsubscribersPew;
@@ -107,7 +109,7 @@ bot.on('ready', function () {
     diff = 100000;
     var urlPew;
     var urlT;
-    
+    var apikey = "AIzaSyA8NTv4moe1oZjEQYh4QMbz6DohzPFDGQA";
 
     urlPew = "https://www.googleapis.com/youtube/v3/channels?key=" + apikey + "&id=UC-lHJZR3Gqxm24_Vd_AJ5Yw&part=snippet,contentDetails,statistics";
     urlT = "https://www.googleapis.com/youtube/v3/channels?key=" + apikey + "&id=UCq-Fj5jknLsUf-MWSy4_brA&part=snippet,contentDetails,statistics";
@@ -117,11 +119,11 @@ bot.on('ready', function () {
         var oldDiff = diff;
 
         request(urlPew, { json: true }, (err, res, dataPew) => {
-            if (!Array.isArray(dataPew.items) || !dataPew.items.length) {return}
+            if (!Array.isArray(dataPew.items) || !dataPew.items.length) { return }
             fetchDataPew(dataPew);
         });
         request(urlT, { json: true }, (err, res, dataT) => {
-            if (!Array.isArray(dataT.items) || !dataT.items.length) {return}
+            if (!Array.isArray(dataT.items) || !dataT.items.length) { return }
             fetchDataT(dataT);
         });
 
@@ -138,9 +140,13 @@ bot.on('ready', function () {
         }
         setTimeout(function () {
             diffGap = oldDiff - diff;
-            
-            if(diffGap <= 0) return;
+
+            if (diffGap <= 0) return;
             var timeUntilInSeconds = (diff / diffGap) * loopTime;
+            var timeUntilInMillis = timeUntilInSeconds * 1000;
+            var dateNowMillis = new Date().getTime();
+            var dateTPewMillis = dateNowMillis + timeUntilInMillis;
+            dateTPew = new Date(dateTPewMillis);
             var timeUntilInMinutes = timeUntilInSeconds / 60;
             var timeUntilInHours = timeUntilInMinutes / 60;
             var minutterUtenTimer = timeUntilInMinutes - (Math.floor(timeUntilInHours)) * 60;
@@ -148,15 +154,15 @@ bot.on('ready', function () {
             timeMinuttSekund = Math.floor(timeUntilInHours) + " hours " + Math.floor(minutterUtenTimer) + " minutes, and " + Math.floor(sekunderUtenTimer) + " seconds"
         }, 500);
 
-    }, loopTime*60);
+    }, loopTimeMillis);
 
 
 
 });
 bot.on('message', message => {
     if (message.content.startsWith(bot.commandPrefix + "time")) {
-        if(diffGap <= 0) return message.reply("wonderful news incomming! PewDiePie is currently getting more subs than T-Series, and the gap is now at " + diff);
-        message.reply("if it keeps going as it has for the last " + loopTime + " seconds, it will be " + timeMinuttSekund + " until it goes down");
+        if (diffGap <= 0) return message.reply("wonderful news incomming! PewDiePie is currently getting more subs than T-Series, and the gap is now at " + diff);
+        message.reply("if it keeps going as it has for the last " + loopTime + " seconds, it will be " + timeMinuttSekund + " until it goes down. This is at " + dateTPew);
     }
 });
 
