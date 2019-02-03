@@ -121,16 +121,12 @@ bot.on('ready', function () {
         var oldDiff = diff;
 
         request(urlPew, { json: true }, (err, res, dataPew) => {
-            if (!Array.isArray(dataPew.items) || !dataPew.items.length) { 
-                return message.reply("an error has occured. Try again or contact runarmod#4352")
-            }
+            if (!Array.isArray(dataPew.items) || !dataPew.items.length) return;
             dataPewWorked = true;
             fetchDataPew(dataPew);
         });
         request(urlT, { json: true }, (err, res, dataT) => {
-            if (!Array.isArray(dataT.items) || !dataT.items.length) { 
-                return message.reply("an error has occured. Try again or contact runarmod#4352")
-            }
+            if (!Array.isArray(dataT.items) || !dataT.items.length) return;
             dataTWorked = true;
             fetchDataT(dataT);
         });
