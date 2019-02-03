@@ -110,7 +110,6 @@ bot.on('ready', function () {
     diff = 100000;
     var urlPew;
     var urlT;
-    var apikey = "AIzaSyA8NTv4moe1oZjEQYh4QMbz6DohzPFDGQA";
 
     urlPew = "https://www.googleapis.com/youtube/v3/channels?key=" + apikey + "&id=UC-lHJZR3Gqxm24_Vd_AJ5Yw&part=snippet,contentDetails,statistics";
     urlT = "https://www.googleapis.com/youtube/v3/channels?key=" + apikey + "&id=UCq-Fj5jknLsUf-MWSy4_brA&part=snippet,contentDetails,statistics";
