@@ -18,8 +18,8 @@ class GapYoutubeCommand extends Commando.Command {
         var totalsubscribersT;
         var urlPew;
         var urlT;
-        var dataPewWorked;
-        var dataTWorked;
+        var dataPewWorked = false;
+        var dataTWorked = false;
         var apikey = process.env.youtubeapi;
 
         urlPew = "https://www.googleapis.com/youtube/v3/channels?key=" + apikey + "&id=UC-lHJZR3Gqxm24_Vd_AJ5Yw&part=snippet,contentDetails,statistics";
@@ -32,7 +32,7 @@ class GapYoutubeCommand extends Commando.Command {
             dataPewWorked = true;
             fetchDataPew(dataPew);
         });
-        if (dataPewWorked != true) return message.reply("error with PewDiePie API");
+        if (dataPewWorked != false) return message.reply("error with PewDiePie API");
         request(urlT, { json: true }, (err, res, dataT) => {
             if (!Array.isArray(dataT.items) || !dataT.items.length) {
                 return message.reply("an error has occured. Try again or contact runarmod#4352")
@@ -40,7 +40,7 @@ class GapYoutubeCommand extends Commando.Command {
             dataTWorked = true;
             fetchDataT(dataT);
         });
-        if (dataTWorked != true) return message.reply("error with T-Series API");
+        if (dataTWorked != false) return message.reply("error with T-Series API");
 
         function fetchDataPew(dataPew) {
             totalsubscribersPew = dataPew.items[0].statistics.subscriberCount;
