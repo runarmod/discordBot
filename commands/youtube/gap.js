@@ -50,9 +50,9 @@ class GapYoutubeCommand extends Commando.Command {
 
         }
         setTimeout(function () { bindData(totalsubscribersPew, totalsubscribersT); }, 500);
-        if (totalsubscribersPew == (NaN || null || undefined)) return message.reply("error with getting PewDiePie API data");	
-        if (totalsubscribersT == (NaN || null || undefined)) return message.reply("error with getting T-Series API data");
         function bindData(totalsubscribersPew, totalsubscribersT) {
+            if (totalsubscribersPew == (NaN || null || undefined)) return message.reply("error with getting PewDiePie API data");	
+            if (totalsubscribersT == (NaN || null || undefined)) return message.reply("error with getting T-Series API data");
             const embededed = new RichEmbed()
                 .setTitle("Pewdiepie vs. T-Series")
                 .setColor("#FF0000")
