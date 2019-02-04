@@ -32,7 +32,7 @@ class GapYoutubeCommand extends Commando.Command {
             dataPewWorked = true;
             fetchDataPew(dataPew);
         });
-        if (dataPewWorked != true) return message.reply("error");
+        if (dataPewWorked != true) return message.reply("error with PewDiePie API");
         request(urlT, { json: true }, (err, res, dataT) => {
             if (!Array.isArray(dataT.items) || !dataT.items.length) {
                 return message.reply("an error has occured. Try again or contact runarmod#4352")
@@ -40,7 +40,7 @@ class GapYoutubeCommand extends Commando.Command {
             dataTWorked = true;
             fetchDataT(dataT);
         });
-        if (dataTWorked != true) return message.reply("error");
+        if (dataTWorked != true) return message.reply("error with T-Series API");
 
         function fetchDataPew(dataPew) {
             totalsubscribersPew = dataPew.items[0].statistics.subscriberCount;
@@ -50,8 +50,8 @@ class GapYoutubeCommand extends Commando.Command {
 
         }
         setTimeout(function () { bindData(totalsubscribersPew, totalsubscribersT); }, 500);
-        if (totalsubscribersPew == (NaN || null || undefined)) return message.reply("error");	
-        if (totalsubscribersT == (NaN || null || undefined)) return message.reply("error");
+        if (totalsubscribersPew == (NaN || null || undefined)) return message.reply("error with getting PewDiePie API data");	
+        if (totalsubscribersT == (NaN || null || undefined)) return message.reply("error with getting T-Series API data");
         function bindData(totalsubscribersPew, totalsubscribersT) {
             const embededed = new RichEmbed()
                 .setTitle("Pewdiepie vs. T-Series")
