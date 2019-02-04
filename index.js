@@ -125,14 +125,14 @@ bot.on('ready', function () {
             dataPewWorked = true;
             fetchDataPew(dataPew);
         });
-        if (dataPewWorked != true) return;
+        if (dataPewWorked != false) return;
         
         request(urlT, { json: true }, (err, res, dataT) => {
             if (!Array.isArray(dataT.items) || !dataT.items.length) return;
             dataTWorked = true;
             fetchDataT(dataT);
         });
-        if (dataTWorked != true) return;
+        if (dataTWorked != false) return;
 
         function fetchDataPew(dataPew) {
             totalsubscribersPew = dataPew.items[0].statistics.subscriberCount;
