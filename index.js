@@ -169,7 +169,6 @@ bot.on('ready', function () {
 bot.on('message', message => {
     if (message.content.startsWith(bot.commandPrefix + "time")) {
         if (diffGap <= 0) return message.reply("wonderful news incomming! PewDiePie is currently getting more subs than T-Series, and the gap is now at " + diff);
-        if (timeMinuttSekund == (undefined || NaN || null)) return message.reply("I can't get contact with the youtube API. Please contact runarmod#4352");
         if (dateTPew == (undefined || NaN || null)) return message.reply("I can't get contact with the youtube API. Please contact runarmod#4352");
         message.reply("if it keeps going as it has for the last " + loopTime + " seconds, then T-Series will pass PewDiePie at " + dateTPew);
     }
