@@ -8,7 +8,7 @@ const bot = new Commando.Client({
 });
 const TOKEN = process.env.token;
 const apikey = process.env.youtubeapi;
-let forbidden = ["yeet"];
+let forbidden = ["yeet", "yeeet", "yeeeet", "yeeeeet", "yeeeeeet", "yeeeeeeet", "yeeeeeeet", "yeeeeeeeet", "yeeeeeeeeet", "yeeeeeeeeeet", "yeeeeeeeeeeet"];
 
 bot.registry
     .registerGroups([
