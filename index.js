@@ -100,7 +100,8 @@ bot.on('ready', function(){
 
 var diffGap;
 var dateTPew;
-var loopTimeMillis = 3600 * 1000;
+var loopTime = 3600;
+var loopTimeMillis = loopTime * 1000;
 
 bot.on('ready', function () {
     var totalsubscribersPew;
