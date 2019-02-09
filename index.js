@@ -99,10 +99,8 @@ bot.on('ready', function(){
 });
 
 var diffGap;
-var timeMinuttSekund;
 var dateTPew;
-var loopTime = 750;
-var loopTimeMillis = loopTime * 1000;
+var loopTimeMillis = 3600 * 1000;
 
 bot.on('ready', function () {
     var totalsubscribersPew;
@@ -143,16 +141,10 @@ bot.on('ready', function () {
             diffGap = oldDiff - diff;
 
             if (diffGap < 0) return;
-            var timeUntilInSeconds = (diff / diffGap) * loopTime;
-            var timeUntilInMillis = timeUntilInSeconds * 1000;
+            var timeUntilInMillis = (diff / diffGap) * loopTime * 1000;
             var dateNowMillis = new Date().getTime();
             var dateTPewMillis = dateNowMillis + timeUntilInMillis;
             dateTPew = new Date(dateTPewMillis);
-            /*var timeUntilInMinutes = timeUntilInSeconds / 60;
-            var timeUntilInHours = timeUntilInMinutes / 60;
-            var minutterUtenTimer = timeUntilInMinutes - (Math.floor(timeUntilInHours)) * 60;
-            var sekunderUtenTimer = timeUntilInSeconds - (Math.floor(timeUntilInMinutes)) * 60;
-            timeMinuttSekund = Math.floor(timeUntilInHours) + " hours " + Math.floor(minutterUtenTimer) + " minutes, and " + Math.floor(sekunderUtenTimer) + " seconds"*/
         }, 500);
 
     }, loopTimeMillis);
@@ -162,7 +154,7 @@ bot.on('ready', function () {
 });
 bot.on('message', message => {
     if (message.content.startsWith(bot.commandPrefix + "time")) {
-        if (diffGap < 0) return message.reply("wonderful news incomming! PewDiePie is currently getting more subs than T-Series, and the gap is now at around " + diff + ". Do 'gap to see exact gap.");
+        if (diffGap < 0) return message.reply("wonderful news incomming! PewDiePie is currently getting more subs than T-Series. Do 'gap to see exact gap.");
         if (diff == 0) return message.reply("the time estimate is not yet ready. Try again soon. Remember that the estimate refreshes once per " + loopTime + " seconds, and that you have to wait for that many seconds after the code has been renewed to see the estimate. ");
         if (dateTPew == (undefined || NaN || null)) return message.reply("I can't get contact with the youtube API. Please contact runarmod#4352");
         message.reply("if it keeps going as it has for the last " + loopTime + " seconds, then T-Series will pass PewDiePie at " + dateTPew);
