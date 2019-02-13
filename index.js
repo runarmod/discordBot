@@ -176,7 +176,7 @@ bot.on('ready', function () {
 
             var differencegap = totalsubscribersPewdie - totalsubscribersTs;
             msg.edit("The gap is currently " + differencegap + " subscribers.");
-        }, 900000);
+        }, 60000);
     });
     
     
