@@ -152,7 +152,7 @@ bot.on('ready', function () {
 
     
     
-    
+    /*
     urlPewdie = "https://www.googleapis.com/youtube/v3/channels?key=" + apikey + "&id=UC-lHJZR3Gqxm24_Vd_AJ5Yw&part=snippet,contentDetails,statistics";
     urlTs = "https://www.googleapis.com/youtube/v3/channels?key=" + apikey + "&id=UCq-Fj5jknLsUf-MWSy4_brA&part=snippet,contentDetails,statistics";
     bot.channels.find(channel => channel.name === "live").send('The difference gap will be updated here every 15 minutes').then(msg => {
@@ -178,7 +178,7 @@ bot.on('ready', function () {
             msg.edit("The gap is currently " + differencegap + " subscribers.");
         }, 60000);
     });
-    
+    */
     
 
 });
