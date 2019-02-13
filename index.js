@@ -150,7 +150,36 @@ bot.on('ready', function () {
 
     }, loopTimeMillis);
 
+    
+    
+    
+    urlPewdie = "https://www.googleapis.com/youtube/v3/channels?key=" + apikey + "&id=UC-lHJZR3Gqxm24_Vd_AJ5Yw&part=snippet,contentDetails,statistics";
+    urlTs = "https://www.googleapis.com/youtube/v3/channels?key=" + apikey + "&id=UCq-Fj5jknLsUf-MWSy4_brA&part=snippet,contentDetails,statistics";
+    bot.channels.find(channel => channel.name === "live").send('The difference gap will be updated here every 15 minutes').then(msg => {
+        var editGap = setInterval(() => {
+            request(urlPewdie, { json: true }, (err, res, dataPewdie) => {
+                if (!Array.isArray(dataPewdie.items) || !dataPewdie.items.length) return;
+                fetchDataPewdie(dataPewdie);
+            });
 
+            request(urlTs, { json: true }, (err, res, dataTs) => {
+                if (!Array.isArray(dataTs.items) || !dataTs.items.length) return;
+                fetchDataTs(dataTs);
+            });
+
+            function fetchDataPewdie(dataPewdie) {
+                totalsubscribersPewdie = dataPewdie.items[0].statistics.subscriberCount;
+            }
+            function fetchDataTs(dataTs) {
+                totalsubscribersTs = dataTs.items[0].statistics.subscriberCount;
+            }
+
+            var differencegap = totalsubscribersPewdie - totalsubscribersTs;
+            msg.edit("The gap is currently " + differencegap + " subscribers.");
+        }, 900000);
+    });
+    
+    
 
 });
 bot.on('message', message => {
