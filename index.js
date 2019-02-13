@@ -100,7 +100,7 @@ bot.on('ready', function(){
 
 var diffGap;
 var dateTPew;
-var loopTime = 900;
+var loopTime = 600;
 var loopTimeMillis = loopTime * 1000;
 
 bot.on('ready', function () {
