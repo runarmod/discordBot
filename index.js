@@ -70,7 +70,7 @@ bot.on('message', message => {
 
     var utenSpaceTegnUnder = message.content.replace(/3|\ud83c|\uddea|\u03B5|\u0395|\u0045|\u24BA|\uFF25|\u00C8|\u00C9|\u00CA|\u1EC0|\u1EBE|\u1EC4|\u1EC2|\u1EBC|\u0112|\u1E14|\u1E16|\u0114|\u0116|\u00CB|\u1EBA|\u011A|\u0204|\u0206|\u1EB8|\u1EC6|\u0228|\u1E1C|\u0118|\u1E18|\u1E1A|\u0190|\u018E|\u0065|\u24D4|\uFF45|\u00E8|\u00E9|\u00EA|\u1EC1|\u1EBF|\u1EC5|\u1EC3|\u1EBD|\u0113|\u1E15|\u1E17|\u0115|\u0117|\u00EB|\u1EBB|\u011B|\u0205|\u0207|\u1EB9|\u1EC7|\u0229|\u1E1D|\u0119|\u1E19|\u1E1B|\u0247|\u025B|\u01DD/gi, "e").replace(/\u0059|\ud83c|\uddfe|\u24CE|\uFF39|\u1EF2|\u00DD|\u0176|\u1EF8|\u0232|\u1E8E|\u0178|\u1EF6|\u1EF4|\u01B3|\u024E|\u1EFE|\u0079|\u24E8|\uFF59|\u1EF3|\u00FD|\u0177|\u1EF9|\u0233|\u1E8F|\u00FF|\u1EF7|\u1E99|\u1EF5|\u01B4|\u024F|\u1EFF|\u03A5|\u03B3/gi, "y").replace(/\u03C4|\ud83c|\uddf9|\u0054|\u24C9|\uFF34|\u1E6A|\u0164|\u1E6C|\u021A|\u0162|\u1E70|\u1E6E|\u0166|\u01AC|\u01AE|\u023E|\uA786|\u0074|\u24E3|\uFF54|\u1E6B|\u1E97|\u0165|\u1E6D|\u021B|\u0163|\u1E71|\u1E6F|\u0167|\u01AD|\u0288|\u2C66|\uA787/gi, "t").replace(/\s|\W|^|$|\_/g, "").toLowerCase();
 
-    if (message.author.id !== (/*Stian*/ '311548590776516609' && /*Joel*/ '253219750455279616' && /*Runar*/ '388082091432214538' && /*Ludvik*/ '173458260798603264')) {
+    if (message.author.id !== (/*Stian*/ '311548590776516609' || /*Joel*/ '253219750455279616' || /*Runar*/ '388082091432214538' || /*Ludvik*/ '173458260798603264')) {
         for (var i in forbidden) {
             if (utenSpaceTegnUnder.includes(forbidden[i])) {
                 var newSentenceForbidden = utenSpaceTegnUnder.replace(new RegExp(forbidden[i], 'g'), "[forbidden word]");
