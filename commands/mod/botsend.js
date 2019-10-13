@@ -16,7 +16,7 @@ class BotSendCommand extends Commando.Command
     {
         let mods = ["388082091432214538", "253219750455279616"];
         for(var i = 0; i < mods.length; i++){
-            if(mods[i] == message.author.id)
+            if(mods[i].includes(message.author.id))
             {
                 message.channel.send(args);
                 message.delete();
