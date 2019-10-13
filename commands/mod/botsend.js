@@ -14,19 +14,21 @@ class BotSendCommand extends Commando.Command
 
     async run(message, args)
     {
-        let mods = ["388082091432214538"];
-        if(mods.includes(message.author.id))
-        {
-            message.channel.send(args);
-            message.delete();
-        }
-        else
-        {
-            message.channel.send(message.author + ", you don't have permission to use this command...")
-            .then(msg => {
-                message.delete(3000);
-                msg.delete(3000);
-            })
+        let mods = ["388082091432214538", "253219750455279616"];
+        for(var i = 0; i < mods.length; i++){
+            if(mods[i] == message.author.id)
+            {
+                message.channel.send(args);
+                message.delete();
+            }
+            else
+            {
+                message.channel.send(message.author + ", you don't have permission to use this command...")
+                .then(msg => {
+                    message.delete(3000);
+                    msg.delete(3000);
+                })
+            }
         }
     }
 }
